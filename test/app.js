@@ -20,7 +20,7 @@ var testHeader = testWork + ' (c) ' + testYear + ' ' + testName + ' <' + testEma
 
 var testOutput = 'LICENSE';
 
-describe('generator-license-cc:app', function () {
+describe('generator-license-cc:app CC-BY-4.0', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
@@ -34,14 +34,34 @@ describe('generator-license-cc:app', function () {
       }).toPromise();
   });
 
-  it('creates LICENSE file', function () {
-    assert.file([testOutput]);
-  });
-
-  it('creates LICENSE file with correct data', function () {
+  it('creates CC-BY-4.0 LICENSE file with correct data', function () {
     assert.fileContent(testOutput, testHeader);
     assert.fileContent(testOutput, 'Creative Commons Attribution 4.0 International License.');
     assert.fileContent(testOutput, 'creativecommons.org/licenses/by/4.0');
     assert.fileContent(testOutput, 'Attribution 4.0 International');
   });
 });
+
+describe('generator-license-cc:app CC-BY-SA-4.0', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        name: testName,
+        work: testWork,
+        year: testYear,
+        email: testEmail,
+        website: testWebsite,
+        license: testLicenses[0],
+        output: testOutput
+      }).toPromise();
+  });
+
+  it('creates CC-BY-SA-4.0 LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeader);
+    assert.fileContent(testOutput, 'Creative Commons Attribution-ShareAlike 4.0 International License.');
+    assert.fileContent(testOutput, 'creativecommons.org/licenses/by-sa/4.0');
+    assert.fileContent(testOutput, 'Attribution-ShareAlike 4.0 International');
+  });
+});
+
+
