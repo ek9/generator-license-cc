@@ -129,3 +129,25 @@ describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
     assert.fileContent(testOutput, 'Attribution-NonCommercial-ShareAlike 4.0 International');
   });
 });
+
+describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        name: testName,
+        work: testWork,
+        year: testYear,
+        email: testEmail,
+        website: testWebsite,
+        license: testLicenses[0],
+        output: testOutput
+      }).toPromise();
+  });
+
+  it('creates CC-BY-NC-ND-4.0 LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeader);
+    assert.fileContent(testOutput, 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License.');
+    assert.fileContent(testOutput, 'creativecommons.org/licenses/by-nc-nd/4.0');
+    assert.fileContent(testOutput, 'Attribution-NonCommercial-NoDerivs 4.0 International');
+  });
+});
