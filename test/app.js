@@ -51,7 +51,7 @@ describe('generator-license-cc:app CC-BY-SA-4.0', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        license: testLicenses[1],
         output: testOutput
       }).toPromise();
   });
@@ -73,7 +73,7 @@ describe('generator-license-cc:app CC-BY-ND-4.0', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        license: testLicenses[2],
         output: testOutput
       }).toPromise();
   });
@@ -95,7 +95,7 @@ describe('generator-license-cc:app CC-BY-NC-4.0', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        license: testLicenses[3],
         output: testOutput
       }).toPromise();
   });
@@ -117,7 +117,7 @@ describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        license: testLicenses[4],
         output: testOutput
       }).toPromise();
   });
@@ -139,7 +139,7 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        license: testLicenses[5],
         output: testOutput
       }).toPromise();
   });
