@@ -69,16 +69,16 @@ module.exports = Generator.extend({
     this.gitc = gitConfig.sync();
     // get name via argument or fallback to git
     if (this._initOptions.name) {
-      this.options.name = this._initOptions.name
+      this.options.name = this._initOptions.name;
     } else if (this.gitc.user) {
-      this.options.name = this.gitc.user.name
+      this.options.name = this.gitc.user.name;
     }
 
     // get email via argument or fallback to git
     if (this._initOptions.email) {
-      this.options.email = this._initOptions.email
+      this.options.email = this._initOptions.email;
     } else if (this.gitc.user) {
-      this.options.email = this.gitc.user.email
+      this.options.email = this.gitc.user.email;
     }
 
     this.options.work = this._initOptions.work;
