@@ -14,7 +14,7 @@ var testLicenses = [
   'CC-BY-ND-4.0',
   'CC-BY-NC-4.0',
   'CC-BY-NC-SA-4.0',
-  'CC-NY-NC-ND-4.0'
+  'CC-BY-NC-ND-4.0'
 ];
 var testHeader = testWork + ' (c) ' + testYear + ' ' + testName + ' <' + testEmail + '> (' + testWebsite + ')';
 
@@ -80,9 +80,9 @@ describe('generator-license-cc:app CC-BY-ND-4.0', function () {
 
   it('creates CC-BY-ND-4.0 LICENSE file with correct data', function () {
     assert.fileContent(testOutput, testHeader);
-    assert.fileContent(testOutput, 'Creative Commons Attribution-NoDerivs 4.0 International License.');
+    assert.fileContent(testOutput, 'Creative Commons Attribution-NoDerivatives 4.0 International License.');
     assert.fileContent(testOutput, 'creativecommons.org/licenses/by-nd/4.0');
-    assert.fileContent(testOutput, 'Attribution-NoDerivs 4.0 International');
+    assert.fileContent(testOutput, 'Attribution-NoDerivatives 4.0 International');
   });
 });
 
@@ -146,8 +146,8 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
 
   it('creates CC-BY-NC-ND-4.0 LICENSE file with correct data', function () {
     assert.fileContent(testOutput, testHeader);
-    assert.fileContent(testOutput, 'Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License.');
+    assert.fileContent(testOutput, 'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.');
     assert.fileContent(testOutput, 'creativecommons.org/licenses/by-nc-nd/4.0');
-    assert.fileContent(testOutput, 'Attribution-NonCommercial-NoDerivs 4.0 International');
+    assert.fileContent(testOutput, 'Attribution-NonCommercial-NoDerivatives 4.0 International');
   });
 });
