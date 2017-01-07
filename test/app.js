@@ -97,8 +97,6 @@ describe('generator-license-cc:app no contact details - website', function () {
   });
 });
 
-
-
 describe('generator-license-cc:app no contact details + no year', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
@@ -114,4 +112,3 @@ describe('generator-license-cc:app no contact details + no year', function () {
     assert.fileContent(testOutput, testHeaderNoYear);
   });
 });
-
