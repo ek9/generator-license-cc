@@ -41,4 +41,3 @@ describe('generator-license-cc:app', function () {
     assert.noFile('package.json');
   });
 });
-
