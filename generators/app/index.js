@@ -15,16 +15,10 @@ const licenses = [
 
 module.exports = Generator.extend({
 
-  _callPrompts: function (prompts) {
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    }.bind(this));
-  },
-
   constructor: function () {
     Generator.apply(this, arguments);
 
+    // define all options/arguments for generator
     this.option('name', {
       type: String,
       desc: 'Author\'s Name',
@@ -64,24 +58,22 @@ module.exports = Generator.extend({
 
     this.option('output', {
       type: String,
-      desc: 'Output File',
+      desc: 'Output file',
       default: 'LICENSE',
-      required: false
+      required: true
     });
   },
 
   initializing: function () {
     // init git config
     this.gitc = gitConfig.sync();
-    // get name via argument or from git
-    this.options.name = this.options.name || this.gitc.user.name || null;
-    this.options.work = this.options.work || null;
-
-    if (this.options.email !== undefined || this.options.website !== undefined) {
-      // only try to set email if any of contact data passed by options
-      // as it must be skippable otherwise
-      this.options.email = this.options.email || this.gitc.user.email || null;
-    }
+    // get name via argument or fallback to git
+    this.options.name = this._initOptions.name || this.gitc.user.name;
+    this.options.work = this._initOptions.work;
+    this.options.year = this._initOptions.year;
+    this.options.website = this._initOptions.website;
+    this.options.email = this._initOptions.email || this.gitc.user.email;
+    this.options.output = this._initOptions.output || this.options.output;
 
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -91,24 +83,41 @@ module.exports = Generator.extend({
   },
 
   prompting: {
-    nameAndTitlePrompt() {
+    requiredPrompt() {
       var prompts = [
         {
           name: 'name',
           message: 'Author\'s Name:',
           default: this.options.name,
-          when: this._initOptions.name === undefined
+          when: !this._initOptions.name
         },
         {
           name: 'work',
           message: 'Licensed Work Title:',
           default: this.options.work,
-          when: this._initOptions.work === undefined
+          when: !this.options.work
+        },
+        {
+          name: 'year',
+          message: 'Year(s) to include on the license (e.g. 2016-2017)',
+          default: this.options.year,
+          when: !this.options.year
         }
-
       ];
 
-      return this._callPrompts(prompts);
+      return this.prompt(prompts).then(function (answers) {
+        if (answers.name) {
+          this.options.name = answers.name.trim();
+        }
+
+        if (answers.work) {
+          this.options.work = answers.work.trim();
+        }
+
+        if (answers.year) {
+          this.options.year = answers.year;
+        }
+      }.bind(this));
     },
     contactConfirmPrompt() {
       var prompts = [
@@ -117,31 +126,46 @@ module.exports = Generator.extend({
           name: 'contactDetails',
           message: 'Would you like to add contact details?',
           default: true,
-          when: this.options.email === undefined && this.options.website === undefined
+          when: !this._initOptions.email && !this._initOptions.website
         }
       ];
 
-      return this._callPrompts(prompts);
-    },
-    contactPrompt() {
-      var prompts = [
-        {
-          name: 'email',
-          message: 'Author\'s Email:',
-          default: this.options.email,
-          when: this.props.contactDetails === true && this.options.email === undefined
-        },
-        {
-          name: 'website',
-          message: 'Author\'s Website:',
-          default: this.options.website,
-          when: this.props.contactDetails === true && this.options.website === undefined
-        }
-      ];
-
-      return this._callPrompts(prompts);
+      return this.prompt(prompts).then(function (answers) {
+        this.options.contactDetails = answers.contactDetails;
+      }.bind(this));
     },
 
+    contactEmailPrompt() {
+      if (this.options.contactDetails && !this._initOptions.email) {
+        var prompts = [
+          {
+            name: 'email',
+            message: 'Author\'s Email:',
+            default: this.options.email
+          }
+        ];
+
+        return this.prompt(prompts).then(function (answers) {
+          this.options.email = answers.email;
+        }.bind(this));
+      }
+    },
+
+    contactWebsitePrompt() {
+      if (this.options.contactDetails && !this._initOptions.website) {
+        var prompts = [
+          {
+            name: 'website',
+            message: 'Author\'s Website:',
+            default: this.options.website
+          }
+        ];
+
+        return this.prompt(prompts).then(function (answers) {
+          this.options.website = answers.website;
+        }.bind(this));
+      }
+    },
     licensePrompt() {
       var prompts = [
         {
@@ -150,76 +174,57 @@ module.exports = Generator.extend({
           message: 'Choose a Creative Commons License:',
           default: this.options.license,
           choices: licenses,
-          when: this._initOptions.license === '' || this._initOptions.license === undefined
+          when: !this._initOptions.license
         },
         {
           name: 'output',
           message: 'Output file:',
           default: 'LICENSE',
-          when: this._initOptions.output === '' || this._initOptions.output === undefined
+          when: !this._initOptions.output
         }
 
       ];
 
-      return this._callPrompts(prompts);
+      return this.prompt(prompts).then(function (answers) {
+        if (answers.license) {
+          this.options.license = answers.license;
+        }
+
+        if (answers.output) {
+          this.options.output = answers.output;
+        }
+      }.bind(this));
     }
   },
 
   writing: function () {
-    // init all options to props
-    this.props.name = this.options.name || this.props.name;
-    this.props.license = this.options.license || this.props.license;
-    this.props.output = this.options.output || this.props.output;
-    if (this.props.contactDetails === true || this.props.contactDetails === undefined) {
-      this.props.email = this.props.email || this.options.email || '';
-      this.props.website = this.props.website || this.options.website || '';
-    }
-
     // check license file
-    var filename = this.props.license + '.txt';
-
+    var filename = this.options.license + '.txt';
     if (!this.fs.exists(this.templatePath(filename))) {
       throw new Error('License \'' + filename + '\' NOT FOUND!');
     }
 
     // combine author data
-    let author = this.props.name.trim();
-    if (this.props.email) {
-      author += ' <' + this.props.email.trim() + '>';
+    let author = this.options.name;
+    if (this.options.email) {
+      author += ' <' + this.options.email + '>';
     }
-    if (this.props.website) {
-      author += ' (' + this.props.website.trim() + ')';
+    if (this.options.website) {
+      author += ' (' + this.options.website + ')';
     }
 
+    // generate LICENSE from teplate file
     this.fs.copyTpl(
       this.templatePath(filename),
-      this.destinationPath(this.props.output),
+      this.destinationPath(this.options.output),
       {
         year: this.options.year,
         author: author,
-        work: 'work'
+        work: this.options.work
       }
     );
-
-    // package
-    if (!this.fs.exists(this.destinationPath('package.json'))) {
-      return;
-    }
-
-    const pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
-    pkg.license = this.props.license;
-
-    // We don't want users to publish their module to NPM if they copyrighted
-    // their content.
-    if (this.props.license === 'nolicense') {
-      delete pkg.license;
-      pkg.private = true;
-    }
-
-    this.fs.writeJSON(this.destinationPath('package.json'), pkg);
   },
 
   install: function () {
-    this.installDependencies();
   }
 });

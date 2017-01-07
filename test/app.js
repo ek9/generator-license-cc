@@ -5,6 +5,7 @@ var helpers = require('yeoman-test');
 
 var testName = 'Bob Jr';
 var testWork = 'Test Work';
+var testYear = '2016-2017';
 var testEmail = 'bob@example.com';
 var testWebsite = 'http://www.example.com';
 var testLicenses = [
@@ -15,6 +16,7 @@ var testLicenses = [
   'CC-BY-NC-SA-4.0',
   'CC-NY-NC-ND-4.0'
 ];
+var testHeader = testWork + ' (c) ' + testYear + ' ' + testName + ' <' + testEmail + '> (' + testWebsite + ')';
 
 var testOutput = 'LICENSE';
 
@@ -24,6 +26,7 @@ describe('generator-license-cc:app', function () {
       .withPrompts({
         name: testName,
         work: testWork,
+        year: testYear,
         email: testEmail,
         website: testWebsite,
         license: testLicenses[0],
@@ -32,12 +35,13 @@ describe('generator-license-cc:app', function () {
   });
 
   it('creates LICENSE file', function () {
-    assert.file([
-      'LICENSE'
-    ]);
+    assert.file([testOutput]);
   });
 
-  it('does not create package.json file', function () {
-    assert.noFile('package.json');
+  it('creates LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeader);
+    assert.fileContent(testOutput, 'Creative Commons Attribution 4.0 International License.');
+    assert.fileContent(testOutput, 'creativecommons.org/licenses/by/4.0');
+    assert.fileContent(testOutput, 'Attribution 4.0 International');
   });
 });
