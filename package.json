@@ -62,7 +62,7 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ek9/generator-license-cc/issues"
   }
