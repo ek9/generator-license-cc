@@ -9,6 +9,8 @@
 yo license-cc
 ```
 
+[![asciicast](https://asciinema.org/a/98528.png)](https://asciinema.org/a/98528)
+
 ## Install
 
 First, install [Yeoman](http://yeoman.io) and generator-license-cc using
