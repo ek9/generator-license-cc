@@ -102,8 +102,8 @@ module.exports = Generator.extend({
         {
           name: 'work',
           message: 'Licensed Work Title:',
-          default: this.options.name,
-          when: this._initOptions.name === undefined
+          default: this.options.work,
+          when: this._initOptions.work === undefined
         }
 
       ];
