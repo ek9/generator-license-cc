@@ -68,11 +68,22 @@ module.exports = Generator.extend({
     // init git config
     this.gitc = gitConfig.sync();
     // get name via argument or fallback to git
-    this.options.name = this._initOptions.name || this.gitc.user.name;
+    if (this._initOptions.name) {
+      this.options.name = this._initOptions.name
+    } else if (this.gitc.user) {
+      this.options.name = this.gitc.user.name
+    }
+
+    // get email via argument or fallback to git
+    if (this._initOptions.email) {
+      this.options.email = this._initOptions.email
+    } else if (this.gitc.user) {
+      this.options.email = this.gitc.user.email
+    }
+
     this.options.work = this._initOptions.work;
     this.options.year = this._initOptions.year;
     this.options.website = this._initOptions.website;
-    this.options.email = this._initOptions.email || this.gitc.user.email;
     this.options.output = this._initOptions.output || this.options.output;
 
     // Have Yeoman greet the user.
