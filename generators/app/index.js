@@ -106,7 +106,7 @@ module.exports = Generator.extend({
           name: 'work',
           message: 'Licensed Work Title:',
           default: this.options.work,
-          when: !this.options.work
+          when: !this._initOptions.work
         },
         {
           name: 'year',
