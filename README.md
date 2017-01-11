@@ -34,7 +34,7 @@ yo license-cc
 
 `generator-license-cc` can be used when composing your own generator. An example code how to trigger this generator:
 
-```js`
+```js
 this.composeWith(require.resolve('generator-license-cc/generators/app'), {
   name: this.options.qCreativeWorkAuthor.name, // (optional) Author's Name
   work: this.options.qCreativeWork.title, // (optional) Work Title
