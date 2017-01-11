@@ -34,6 +34,7 @@ describe('generator-license-cc:app', function () {
         year: testYear,
         email: testEmail,
         website: testWebsite,
+        licensePrompt: 'Choose a License:',
         license: testLicenses[0],
         output: testOutput
       }).toPromise();

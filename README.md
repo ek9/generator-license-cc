@@ -30,6 +30,28 @@ Generate Creative Commons LICENSE for your new project:
 yo license-cc
 ```
 
+## Composability with other generators
+
+`generator-license-cc` can be used when composing your own generator. An example code how to trigger this generator:
+
+```js`
+this.composeWith(require.resolve('generator-license-cc/generators/app'), {
+  name: this.options.qCreativeWorkAuthor.name, // (optional) Author's Name
+  work: this.options.qCreativeWork.title, // (optional) Work Title
+  email: this.options.qCreativeWorkAuthor.email, // (optional) Author's Email
+  website: this.options.qCreativeWorkAuthor.website, // (optional) Author's Website
+  year: this.options.qCreativeWorkAuthor.year, // (optional) Year(s) to include
+  licensePrompt: 'Choose a License:', // (optional) custom license prompt text
+  output: 'LICENSE' // (optional) choose output file for generated license
+});
+```
+
+**Note:** Make sure you have `generator-license-cc` as a `dependency` in your generator's `package.json`:
+
+    $ npm install --save generator-license-cc
+
+For more information read [Yeoman's Documentation page on Composability][1].
+
 ### Creative Common Licenses
 
 This generator allows you to generate `LICENSE` file for your project with one
@@ -46,10 +68,10 @@ Alternatively, you can pick [CC0 Public Domain 1.0][17] to waive all copyright.
 
 ### Getting To Know Yeoman
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+* Yeoman has a heart of gold.
+* Yeoman is a person with feelings and opinions, but is very easy to work with.
+* Yeoman can be too opinionated at times but is easily convinced not to be.
+* Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## Author
 
@@ -58,6 +80,8 @@ Copyright (c) 2017 ek9 <dev@ek9.co> (https://ek9.co)
 ## License
 
 This work is licensed under [MIT LICENSE](LICENSE).
+
+[1]: http://yeoman.io/authoring/composability.html
 
 [10]: https://creativecommons.org/licenses/
 [11]: https://creativecommons.org/licenses/by/4.0/

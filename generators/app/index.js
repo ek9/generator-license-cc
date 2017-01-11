@@ -51,6 +51,13 @@ module.exports = Generator.extend({
       defaults: (new Date()).getFullYear()
     });
 
+    this.option('licensePrompt', {
+      type: String,
+      desc: 'License prompt text',
+      required: true,
+      defaults: 'Choose a Creative Commons license:'
+    });
+
     this.option('license', {
       type: String,
       desc: 'License to Generate: CC-BY-4.0, CC-BY-SA-4.0, CC-BY-ND-4.0, CC-BY-NC-4.0, CC-BY-NC-SA-4.0, CC-BY-NC-ND-4.0, CC0-1.0',
@@ -183,7 +190,7 @@ module.exports = Generator.extend({
         {
           type: 'list',
           name: 'license',
-          message: 'Choose a Creative Commons License:',
+          message: this.options.licensePrompt,
           default: this.options.license,
           choices: licenses,
           when: !this._initOptions.license
