@@ -32,21 +32,23 @@ yo license-cc
 
 ## Composability with other generators
 
-`generator-license-cc` can be used when composing your own generator. An example code how to trigger this generator:
+`generator-license-cc` can be used when composing your own generator. An
+example code how to trigger this generator:
 
 ```js
 this.composeWith(require.resolve('generator-license-cc/generators/app'), {
-  name: this.options.qCreativeWorkAuthor.name, // (optional) Author's Name
-  work: this.options.qCreativeWork.title, // (optional) Work Title
-  email: this.options.qCreativeWorkAuthor.email, // (optional) Author's Email
-  website: this.options.qCreativeWorkAuthor.website, // (optional) Author's Website
-  year: this.options.qCreativeWorkAuthor.year, // (optional) Year(s) to include
+  name: 'Bob A',                      // (optional) Author's Name
+  work: 'ProjectX Documentation',     // (optional) Work Title
+  email: 'bob@example.org',           // (optional) Author's Email
+  website: 'http://www.example.org',  // (optional) Author's Website
+  year: '2016-2017',                  // (optional) Year(s) to include
   licensePrompt: 'Choose a License:', // (optional) custom license prompt text
-  output: 'LICENSE' // (optional) choose output file for generated license
+  output: 'docs/LICENSE'              // (optional) choose output file for license
 });
 ```
 
-**Note:** Make sure you have `generator-license-cc` as a `dependency` in your generator's `package.json`:
+**Note:** Make sure you have `generator-license-cc` as a `dependency` in your
+generator's `package.json`:
 
     $ npm install --save generator-license-cc
 
