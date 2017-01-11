@@ -10,7 +10,8 @@ const licenses = [
   {name: 'CC BY-ND Attribution-NoDerivs 4.0 License', value: 'CC-BY-ND-4.0'},
   {name: 'CC BY-NC Attribution-NonCommercial 4.0 License', value: 'CC-BY-NC-4.0'},
   {name: 'CC BY-NC-SA Attribution-NonCommercial-ShareAlike 4.0 License', value: 'CC-BY-NC-SA-4.0'},
-  {name: 'CC BY-NC-ND Attribution-NonCommercial-NoDerivs 4.0 License', value: 'CC-BY-NC-ND-4.0'}
+  {name: 'CC BY-NC-ND Attribution-NonCommercial-NoDerivs 4.0 License', value: 'CC-BY-NC-ND-4.0'},
+  {name: 'CC0 Public Domain 1.0 - Waive all copyright', value: 'CC0-1.0'}
 ];
 
 module.exports = Generator.extend({
@@ -52,7 +53,7 @@ module.exports = Generator.extend({
 
     this.option('license', {
       type: String,
-      desc: 'License to Generate: CC-BY-4.0, CC-BY-SA-4.0, CC-BY-ND-4.0, CC-BY-NC-4.0, CC-BY-NC-SA-4.0, CC-BY-NC-ND-4.0',
+      desc: 'License to Generate: CC-BY-4.0, CC-BY-SA-4.0, CC-BY-ND-4.0, CC-BY-NC-4.0, CC-BY-NC-SA-4.0, CC-BY-NC-ND-4.0, CC0-1.0',
       required: true
     });
 

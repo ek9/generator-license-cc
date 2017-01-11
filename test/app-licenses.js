@@ -14,9 +14,12 @@ var testLicenses = [
   'CC-BY-ND-4.0',
   'CC-BY-NC-4.0',
   'CC-BY-NC-SA-4.0',
-  'CC-BY-NC-ND-4.0'
+  'CC-BY-NC-ND-4.0',
+  'CC0-1.0'
 ];
 var testHeader = testWork + ' (c) ' + testYear + ' ' + testName + ' <' + testEmail + '> (' + testWebsite + ')';
+var testHeaderCC0 = 'To the extent possible under law, ' + testName +
+  '\nhas waived all copyright and related or neighboring rights to\n' + testWork;
 
 var testOutput = 'LICENSE';
 
@@ -149,5 +152,24 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
     assert.fileContent(testOutput, 'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.');
     assert.fileContent(testOutput, 'creativecommons.org/licenses/by-nc-nd/4.0');
     assert.fileContent(testOutput, 'Attribution-NonCommercial-NoDerivatives 4.0 International');
+  });
+});
+
+describe('generator-license-cc:app CC0-1.0', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        name: testName,
+        work: testWork,
+        license: testLicenses[6],
+        output: testOutput
+      }).toPromise();
+  });
+
+  it('creates CC0-1.0 LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeaderCC0);
+    assert.fileContent(testOutput, 'has waived all copyright and related or neighboring rights');
+    assert.fileContent(testOutput, 'creativecommons.org/publicdomain/zero/1.0');
+    assert.fileContent(testOutput, 'CC0 1.0 Universal');
   });
 });

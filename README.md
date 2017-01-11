@@ -42,6 +42,8 @@ of [Creative Commons Licenses][10]:
 - `CC-BY-NC-SA-4.0` [Cretive Commons Attribution Non Commercial Share Alike 4.0 License][15]
 - `CC-BY-NC-ND-4.0` [Cretive Commons Attribution Non Commercial No Deriveratives 4.0][16]
 
+Alternatively, you can pick [CC0 Public Domain 1.0][17] to waive all copyright.
+
 ### Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
@@ -64,7 +66,7 @@ This work is licensed under [MIT LICENSE](LICENSE).
 [14]: https://creativecommons.org/licenses/by-nc/4.0/
 [15]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [16]: https://creativecommons.org/licenses/by-nc-nd/4.0/
-
+[17]: https://creativecommons.org/publicdomain/zero/1.0/
 
 [npm-image]: https://badge.fury.io/js/generator-license-cc.svg
 [npm-url]: https://npmjs.org/package/generator-license-cc
