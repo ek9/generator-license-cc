@@ -1,6 +1,6 @@
 {
   "name": "generator-license-cc",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Creative Commons LICENSE generator for Yeoman",
   "homepage": "https://github.com/ek9/generator-license-cc",
   "author": {
