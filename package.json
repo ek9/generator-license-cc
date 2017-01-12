@@ -24,7 +24,8 @@
     "cc-by-sa",
     "cc-by-nd",
     "cc-by-nc-nd",
-    "cc-by-nc-sa"
+    "cc-by-nc-sa",
+    "cc0"
   ],
   "dependencies": {
     "yeoman-generator": "^1.0.0",
