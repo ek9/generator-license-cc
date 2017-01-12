@@ -49,7 +49,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 gulp.task('coveralls', function () {
   return gulp.src('coverage/**/lcov.info')
     .pipe(coveralls());
-}
+});
 
 gulp.task('watch', function () {
   gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
