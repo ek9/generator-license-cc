@@ -2,6 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Coverage Status][coverage-image]][coverage-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
 ```bash
@@ -100,3 +101,6 @@ This work is licensed under [MIT LICENSE](LICENSE).
 [travis-url]: https://travis-ci.org/ek9/generator-license-cc
 [daviddm-image]: https://david-dm.org/ek9/generator-license-cc.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/ek9/generator-license-cc
+[coverage-image]: https://coveralls.io/repos/github/ek9/generator-license-cc/badge.svg)
+[coverage-url]: https://coveralls.io/github/ek9/generator-license-cc
+
