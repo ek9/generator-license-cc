@@ -212,29 +212,29 @@ module.exports = Generator.extend({
   writing: function () {
     // check license file
     var filename = this.options.license + '.txt';
-    if (!this.fs.exists(this.templatePath(filename))) {
-      throw new Error('License \'' + filename + '\' NOT FOUND!');
-    }
-
-    // combine author data
-    let author = this.options.name;
-    if (this.options.email) {
-      author += ' <' + this.options.email + '>';
-    }
-    if (this.options.website) {
-      author += ' (' + this.options.website + ')';
-    }
-
-    // generate LICENSE from teplate file
-    this.fs.copyTpl(
-      this.templatePath(filename),
-      this.destinationPath(this.options.output),
-      {
-        year: this.options.year,
-        author: author,
-        work: this.options.work
+    if (this.fs.exists(this.templatePath(filename))) {
+      // combine author data
+      let author = this.options.name;
+      if (this.options.email) {
+        author += ' <' + this.options.email + '>';
       }
-    );
+      if (this.options.website) {
+        author += ' (' + this.options.website + ')';
+      }
+
+      // generate LICENSE from teplate file
+      this.fs.copyTpl(
+        this.templatePath(filename),
+        this.destinationPath(this.options.output),
+        {
+          year: this.options.year,
+          author: author,
+          work: this.options.work
+        }
+      );
+    } else {
+      this.log('License \'' + filename + '\' NOT FOUND!');
+    }
   },
 
   install: function () {

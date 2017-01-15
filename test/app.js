@@ -149,3 +149,21 @@ describe('generator-license-cc:app pass email as option', function () {
   });
 });
 
+describe('generator-license-cc:app fail gracefully with invalid license', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        name: testName,
+        work: testWork,
+        license: 'INVALID',
+        output: testOutput
+      }).withOptions({
+        email: testEmail
+      }).toPromise();
+  });
+
+  it('does not create a LICENSE file', function () {
+    assert.noFile('LICENSE');
+  });
+});
+
