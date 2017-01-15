@@ -2,7 +2,6 @@
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var gitConfig = require('git-config');
 
 const licenses = [
   {name: 'CC BY Attribution 4.0 License', value: 'CC-BY-4.0'},
@@ -73,20 +72,14 @@ module.exports = Generator.extend({
   },
 
   initializing: function () {
-    // init git config
-    this.gitc = gitConfig.sync();
     // get name via argument or fallback to git
     if (this._initOptions.name) {
       this.options.name = this._initOptions.name;
-    } else if (this.gitc.user) {
-      this.options.name = this.gitc.user.name;
     }
 
     // get email via argument or fallback to git
     if (this._initOptions.email) {
       this.options.email = this._initOptions.email;
-    } else if (this.gitc.user) {
-      this.options.email = this.gitc.user.email;
     }
 
     this.options.work = this._initOptions.work;
