@@ -27,7 +27,7 @@ module.exports = Generator.extend({
 
     this.option('work', {
       type: String,
-      desc: 'Licensed Work Title',
+      desc: 'Title of Creative Work',
       required: true
     });
 
@@ -54,7 +54,7 @@ module.exports = Generator.extend({
       type: String,
       desc: 'License prompt text',
       required: true,
-      defaults: 'Choose a Creative Commons license:'
+      defaults: 'Choose a license for your Creative Work:'
     });
 
     this.option('license', {
@@ -105,7 +105,7 @@ module.exports = Generator.extend({
         },
         {
           name: 'work',
-          message: 'Licensed Work Title:',
+          message: 'Title of Creative Work:',
           default: this.options.work,
           when: !this._initOptions.work
         },
