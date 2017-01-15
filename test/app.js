@@ -114,7 +114,7 @@ describe('generator-license-cc:app no contact details + no year', function () {
   });
 });
 
-describe('generator-license-cc:app passnameas option', function () {
+describe('generator-license-cc:app pass name as option', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
@@ -130,3 +130,22 @@ describe('generator-license-cc:app passnameas option', function () {
     assert.fileContent(testOutput, testHeaderNoYear);
   });
 });
+
+describe('generator-license-cc:app pass email as option', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        name: testName,
+        work: testWork,
+        license: testLicenses[0],
+        output: testOutput
+      }).withOptions({
+        email: testEmail
+      }).toPromise();
+  });
+
+  it('creates LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeaderNoYear);
+  });
+});
+
