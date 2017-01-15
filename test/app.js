@@ -113,3 +113,20 @@ describe('generator-license-cc:app no contact details + no year', function () {
     assert.fileContent(testOutput, testHeaderNoYear);
   });
 });
+
+describe('generator-license-cc:app passnameas option', function () {
+  before(function () {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        work: testWork,
+        license: testLicenses[0],
+        output: testOutput
+      }).withOptions({
+        name: testName
+      }).toPromise();
+  });
+
+  it('creates LICENSE file with correct data', function () {
+    assert.fileContent(testOutput, testHeaderNoYear);
+  });
+});
