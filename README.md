@@ -6,11 +6,12 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 
 ```bash
-# Creative Commons LICENSE generator for Yeoman
+# Generate Creative Commons LICENSE for your Creative Work
 yo license-cc
 ```
 
-**Now coming with a [license chooser][2] to help you pick your LICENSE!**
+**Now coming with a [license chooser][2] integrated to help you pick
+LICENSE!**
 
 [![asciicast](https://asciinema.org/a/98528.png)](https://asciinema.org/a/98528)
 
