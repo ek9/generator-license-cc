@@ -10,7 +10,19 @@ const licenses = [
   {name: 'CC BY-NC Attribution-NonCommercial 4.0 License', value: 'CC-BY-NC-4.0'},
   {name: 'CC BY-NC-SA Attribution-NonCommercial-ShareAlike 4.0 License', value: 'CC-BY-NC-SA-4.0'},
   {name: 'CC BY-NC-ND Attribution-NonCommercial-NoDerivs 4.0 License', value: 'CC-BY-NC-ND-4.0'},
-  {name: 'CC0 Public Domain 1.0 - Waive all copyright', value: 'CC0-1.0'}
+  {name: 'CC0 Public Domain 1.0 - Waive all copyright', value: 'CC0-1.0'},
+  {name: 'Help me choose a Creative Commons License!', value: 'chooser'}
+];
+
+const chooserAdaptations = [
+  {name: 'Yes', value: 'Yes'},
+  {name: 'No', value: 'No'},
+  {name: 'Yes, as long as others share alike', value: 'Share'}
+];
+
+const chooserCommercial = [
+  {name: 'Yes', value: 'Yes'},
+  {name: 'No', value: 'No'}
 ];
 
 module.exports = Generator.extend({
@@ -189,6 +201,26 @@ module.exports = Generator.extend({
           when: !this._initOptions.license
         },
         {
+          type: 'list',
+          name: 'chooserAdaptations',
+          message: 'Allow adaptations of your work to be shared?',
+          default: 'Yes',
+          choices: chooserAdaptations,
+          when: function (answers) {
+            return answers.license === 'chooser';
+          }
+        },
+        {
+          type: 'list',
+          name: 'chooserCommercial',
+          message: 'Allow commercial uses of your work?',
+          default: 'Yes',
+          choices: chooserCommercial,
+          when: function (answers) {
+            return answers.license === 'chooser';
+          }
+        },
+        {
           name: 'output',
           message: 'Output file:',
           default: 'LICENSE',
@@ -199,7 +231,32 @@ module.exports = Generator.extend({
 
       return this.prompt(prompts).then(function (answers) {
         if (answers.license) {
-          this.options.license = answers.license;
+          if (answers.license === 'chooser') {
+            this.log(answers);
+            if (answers.chooserAdaptations === 'Yes' &&
+              answers.chooserCommercial === 'Yes') {
+              this.options.license = 'CC-BY-4.0';
+            } else if (answers.chooserAdaptations === 'Yes' &&
+              answers.chooserCommercial === 'No') {
+              this.options.license = 'CC-BY-NC-4.0';
+            } else if (answers.chooserAdaptations === 'No' &&
+              answers.chooserCommercial === 'Yes') {
+              this.options.license = 'CC-BY-ND-4.0';
+            } else if (answers.chooserAdaptations === 'No' &&
+              answers.chooserCommercial === 'No') {
+              this.options.license = 'CC-BY-NC-ND-4.0';
+            } else if (answers.chooserAdaptations === 'Share' &&
+              answers.chooserCommercial === 'Yes') {
+              this.options.license = 'CC-BY-SA-4.0';
+            } else if (answers.chooserAdaptations === 'Share' &&
+              answers.chooserCommercial === 'No') {
+              this.options.license = 'CC-BY-NC-SA-4.0';
+            }
+            this.log(this.options.license);
+
+          } else {
+            this.options.license = answers.license;
+          }
         }
 
         if (answers.output) {
