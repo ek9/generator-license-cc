@@ -1,7 +1,6 @@
 'use strict';
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
-var yosay = require('yosay');
 
 const licenses = [
   {name: 'CC BY Attribution 4.0 License', value: 'CC-BY-4.0'},
@@ -99,11 +98,11 @@ module.exports = Generator.extend({
     this.options.website = this._initOptions.website;
     this.options.output = this._initOptions.output || this.options.output;
 
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Generate Creative Commons LICENSE with ' +
-        chalk.red('license-cc') + ' generator!'
-    ));
+    // greet the user
+    this.log();
+    this.log(chalk.red('license-cc') + ' generator is running!');
+    this.log('Generate a Creative Commons LICENSE for your Creative Work');
+    this.log();
   },
 
   prompting: {
@@ -232,7 +231,6 @@ module.exports = Generator.extend({
       return this.prompt(prompts).then(function (answers) {
         if (answers.license) {
           if (answers.license === 'chooser') {
-            this.log(answers);
             if (answers.chooserAdaptations === 'Yes' &&
               answers.chooserCommercial === 'Yes') {
               this.options.license = 'CC-BY-4.0';
@@ -252,7 +250,10 @@ module.exports = Generator.extend({
               answers.chooserCommercial === 'No') {
               this.options.license = 'CC-BY-NC-SA-4.0';
             }
-            this.log(this.options.license);
+            this.log();
+            this.log('> We have picked ' + chalk.red(this.options.license) + ' License, make sure to verify it is suitable!');
+            this.log();
+
           } else {
             this.options.license = answers.license;
           }
