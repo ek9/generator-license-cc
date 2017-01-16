@@ -253,7 +253,6 @@ module.exports = Generator.extend({
             this.log();
             this.log('> We have picked ' + chalk.red(this.options.license) + ' License, make sure to verify it is suitable!');
             this.log();
-
           } else {
             this.options.license = answers.license;
           }
