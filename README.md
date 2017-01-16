@@ -10,6 +10,8 @@
 yo license-cc
 ```
 
+**Now coming with a [license chooser][1] to help you pick your LICENSE!**
+
 [![asciicast](https://asciinema.org/a/98528.png)](https://asciinema.org/a/98528)
 
 ## Install
@@ -85,6 +87,7 @@ Copyright (c) 2017 ek9 <dev@ek9.co> (https://ek9.co)
 This work is licensed under [MIT LICENSE](LICENSE).
 
 [1]: http://yeoman.io/authoring/composability.html
+[2]: https://creativecommons.org/choose/
 
 [10]: https://creativecommons.org/licenses/
 [11]: https://creativecommons.org/licenses/by/4.0/
