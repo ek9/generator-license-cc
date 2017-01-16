@@ -6,7 +6,7 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 
 ```bash
-# Generate Creative Commons LICENSE for your Creative Work
+# Generate a Creative Commons LICENSE for your Creative Work
 yo license-cc
 ```
 
@@ -28,7 +28,7 @@ npm install -g generator-license-cc
 
 ## Usage
 
-Generate Creative Commons LICENSE for your new project:
+Generate a Creative Commons LICENSE for your Creative Work:
 
 ```bash
 yo license-cc
