@@ -253,7 +253,6 @@ module.exports = Generator.extend({
               this.options.license = 'CC-BY-NC-SA-4.0';
             }
             this.log(this.options.license);
-
           } else {
             this.options.license = answers.license;
           }
