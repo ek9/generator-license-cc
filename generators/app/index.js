@@ -100,7 +100,8 @@ module.exports = Generator.extend({
 
     // greet the user
     this.log();
-    this.log(chalk.red('license-cc') + ' - generate a Creative Commons LICENSE for your Creative Works');
+    this.log(chalk.red('license-cc') + ' - generate a ' +
+      chalk.yellow('Creative Commons license') + ' for your Creative Works');
     this.log();
   },
 
