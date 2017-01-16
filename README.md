@@ -10,7 +10,7 @@
 yo license-cc
 ```
 
-**Now coming with a [license chooser][1] to help you pick your LICENSE!**
+**Now coming with a [license chooser][2] to help you pick your LICENSE!**
 
 [![asciicast](https://asciinema.org/a/98528.png)](https://asciinema.org/a/98528)
 
