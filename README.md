@@ -13,7 +13,7 @@ yo license-cc
 **Now coming with a [license chooser][2] integrated to help you pick
 LICENSE!**
 
-[![asciicast](https://asciinema.org/a/98528.png)](https://asciinema.org/a/98528)
+[![asciicast](https://asciinema.org/a/99699.png)](https://asciinema.org/a/99699)
 
 ## Install
 
@@ -49,6 +49,12 @@ this.composeWith(require.resolve('generator-license-cc/generators/app'), {
   licensePrompt: 'Choose a License:', // (optional) custom license prompt text
   output: 'docs/LICENSE'              // (optional) choose output file for license
 });
+```
+
+In order to get a list of licenses supported in this generator, you can call:
+
+```js
+require('generator-license-cc').licenses
 ```
 
 **Note:** Make sure you have `generator-license-cc` as a `dependency` in your
