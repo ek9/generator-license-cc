@@ -1,6 +1,6 @@
 {
   "name": "generator-license-cc",
-  "version": "0.9.7",
+  "version": "1.0.0",
   "description": "Generate a Creative Commons LICENSE for your Creative Work",
   "homepage": "https://github.com/ek9/generator-license-cc",
   "author": {
