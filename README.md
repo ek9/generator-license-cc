@@ -85,6 +85,10 @@ Alternatively, you can pick [CC0 Public Domain 1.0][17] to waive all copyright.
 * Yeoman can be too opinionated at times but is easily convinced not to be.
 * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## Change Log
+
+Please see [CHANGELOG.md](CHANGELOG.md) for information of what was changed.
+
 ## Author
 
 Copyright (c) 2017 ek9 <dev@ek9.co> (https://ek9.co)
