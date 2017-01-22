@@ -88,7 +88,7 @@ Alternatively, you can pick [CC0 Public Domain 1.0][17] to waive all copyright.
 
 ## Change Log
 
-Please see [CHANGELOG.md](CHANGELOG.md) for information of what was changed.
+Please see [CHANGELOG](CHANGELOG.md) for information of what was changed.
 
 ## Author
 
