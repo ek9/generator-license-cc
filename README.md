@@ -41,13 +41,14 @@ example code how to trigger this generator:
 
 ```js
 this.composeWith(require.resolve('generator-license-cc/generators/app'), {
-  name: 'Bob A',                      // (optional) Author's Name
-  work: 'ProjectX Documentation',     // (optional) Work Title
-  email: 'bob@example.org',           // (optional) Author's Email
-  website: 'http://www.example.org',  // (optional) Author's Website
-  year: '2016-2017',                  // (optional) Year(s) to include
-  licensePrompt: 'Choose a License:', // (optional) custom license prompt text
-  output: 'docs/LICENSE'              // (optional) choose output file for license
+  name: 'Bob A',                        // (optional) Author's Name
+  ccWork: 'ProjectX Documentation',     // (optional) Creative Work Title
+  email: 'bob@example.org',             // (optional) Author's Email
+  website: 'http://www.example.org',    // (optional) Author's Website
+  year: '2016-2017',                    // (optional) Year(s) to include
+  ccLicensePrompt: 'Choose a License:', // (optional) custom license prompt text
+  ccLicense: 'chooser',                 // (optional) choose CC license (spdx) or 'chooser'
+  output: 'docs/LICENSE'                // (optional) choose output file
 });
 ```
 

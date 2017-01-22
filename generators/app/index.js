@@ -36,7 +36,7 @@ module.exports = Generator.extend({
       required: true
     });
 
-    this.option('work', {
+    this.option('ccWork', {
       type: String,
       desc: 'Title of Creative Work',
       required: true
@@ -61,14 +61,14 @@ module.exports = Generator.extend({
       defaults: (new Date()).getFullYear()
     });
 
-    this.option('licensePrompt', {
+    this.option('ccLicensePrompt', {
       type: String,
       desc: 'License prompt text',
       required: true,
       defaults: 'Choose a license for your Creative Work:'
     });
 
-    this.option('license', {
+    this.option('ccLicense', {
       type: String,
       desc: 'License to Generate: CC-BY-4.0, CC-BY-SA-4.0, CC-BY-ND-4.0, CC-BY-NC-4.0, CC-BY-NC-SA-4.0, CC-BY-NC-ND-4.0, CC0-1.0',
       required: true
@@ -93,7 +93,7 @@ module.exports = Generator.extend({
       this.options.email = this._initOptions.email;
     }
 
-    this.options.work = this._initOptions.work;
+    this.options.ccWork = this._initOptions.ccWork;
     this.options.year = this._initOptions.year;
     this.options.website = this._initOptions.website;
     this.options.output = this._initOptions.output || this.options.output;
@@ -115,10 +115,10 @@ module.exports = Generator.extend({
           when: !this._initOptions.name
         },
         {
-          name: 'work',
+          name: 'ccWork',
           message: 'Title of Creative Work:',
-          default: this.options.work,
-          when: !this._initOptions.work
+          default: this.options.ccWork,
+          when: !this._initOptions.ccWork
         },
         {
           name: 'year',
@@ -130,11 +130,11 @@ module.exports = Generator.extend({
 
       return this.prompt(prompts).then(function (answers) {
         if (answers.name) {
-          this.options.name = answers.name.trim();
+          this.options.name = answers.name;
         }
 
-        if (answers.work) {
-          this.options.work = answers.work.trim();
+        if (answers.ccWork) {
+          this.options.ccWork = answers.ccWork;
         }
 
         if (answers.year) {
@@ -189,15 +189,15 @@ module.exports = Generator.extend({
         }.bind(this));
       }
     },
-    licensePrompt() {
+    ccLicensePrompt() {
       var prompts = [
         {
           type: 'list',
-          name: 'license',
-          message: this.options.licensePrompt,
-          default: this.options.license,
+          name: 'ccLicense',
+          message: this.options.ccLicensePrompt,
+          default: this.options.ccLicense,
           choices: licenses,
-          when: !this._initOptions.license
+          when: !this._initOptions.ccLicense
         },
         {
           type: 'list',
@@ -206,7 +206,7 @@ module.exports = Generator.extend({
           default: 'Yes',
           choices: chooserAdaptations,
           when: function (answers) {
-            return answers.license === 'chooser';
+            return answers.ccLicense === 'chooser';
           }
         },
         {
@@ -216,7 +216,7 @@ module.exports = Generator.extend({
           default: 'Yes',
           choices: chooserCommercial,
           when: function (answers) {
-            return answers.license === 'chooser';
+            return answers.ccLicense === 'chooser';
           }
         },
         {
@@ -229,32 +229,32 @@ module.exports = Generator.extend({
       ];
 
       return this.prompt(prompts).then(function (answers) {
-        if (answers.license) {
-          if (answers.license === 'chooser') {
+        if (answers.ccLicense) {
+          if (answers.ccLicense === 'chooser') {
             if (answers.chooserAdaptations === 'Yes' &&
               answers.chooserCommercial === 'Yes') {
-              this.options.license = 'CC-BY-4.0';
+              this.options.ccLicense = 'CC-BY-4.0';
             } else if (answers.chooserAdaptations === 'Yes' &&
               answers.chooserCommercial === 'No') {
-              this.options.license = 'CC-BY-NC-4.0';
+              this.options.ccLicense = 'CC-BY-NC-4.0';
             } else if (answers.chooserAdaptations === 'No' &&
               answers.chooserCommercial === 'Yes') {
-              this.options.license = 'CC-BY-ND-4.0';
+              this.options.ccLicense = 'CC-BY-ND-4.0';
             } else if (answers.chooserAdaptations === 'No' &&
               answers.chooserCommercial === 'No') {
-              this.options.license = 'CC-BY-NC-ND-4.0';
+              this.options.ccLicense = 'CC-BY-NC-ND-4.0';
             } else if (answers.chooserAdaptations === 'Share' &&
               answers.chooserCommercial === 'Yes') {
-              this.options.license = 'CC-BY-SA-4.0';
+              this.options.ccLicense = 'CC-BY-SA-4.0';
             } else if (answers.chooserAdaptations === 'Share' &&
               answers.chooserCommercial === 'No') {
-              this.options.license = 'CC-BY-NC-SA-4.0';
+              this.options.ccLicense = 'CC-BY-NC-SA-4.0';
             }
             this.log();
-            this.log('> We have picked ' + chalk.yellow(this.options.license) + ' License!');
+            this.log('> We have picked ' + chalk.yellow(this.options.ccLicense) + ' License!');
             this.log();
           } else {
-            this.options.license = answers.license;
+            this.options.ccLicense = answers.ccLicense;
           }
         }
 
@@ -267,7 +267,7 @@ module.exports = Generator.extend({
 
   writing: function () {
     // check license file
-    var filename = this.options.license + '.txt';
+    var filename = this.options.ccLicense + '.txt';
     if (this.fs.exists(this.templatePath(filename))) {
       // combine author data
       let author = this.options.name;
@@ -285,12 +285,12 @@ module.exports = Generator.extend({
         {
           year: this.options.year,
           author: author,
-          work: this.options.work
+          work: this.options.ccWork
         }
       );
 
       this.log();
-      this.log('> ' + chalk.yellow(this.options.license) + ' License has been generated (file: ' + chalk.yellow(this.options.output) + ')');
+      this.log('> ' + chalk.yellow(this.options.ccLicense) + ' License has been generated (file: ' + chalk.yellow(this.options.output) + ')');
       this.log('> Make sure to ' + chalk.red('verify the license is suitable!'));
       this.log();
     } else {

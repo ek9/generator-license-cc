@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## UNRELEASED
 
+- Fixed compatibility with other license generators (see below) - #18
+- **BC BREAK** Updated option names to be generator specific:
+  - `license` is now `ccLicense`.
+  - `licensePrompt` is now `ccLicensePrompt`.
+  - `work` is now `ccWork`.
+- Fixed `main` definition in `package.json` to point to
+  `generators/app/index.js`
 - Update `.gitattributes` file to exclude directories and files from dist.
 
 ## 1.0.1 - 2017-01-22
