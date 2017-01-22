@@ -22,4 +22,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - License chooser based on https://creativecommons.org/choose/
 - Finalized the API
 
+## 0.9.7 - 2017-01-15
+
+- Fixed a bug that would generate NaN when using year ranges.
+- Added CC0 Public Domain
+- Final API tweaks for options
+
+## 0.0.1 - 2017-01-07
+
+- Initial public release with basic license generation.
+- Basic tests and structure for the generator
+
 [0]: https://github.com/ek9/generator-license-cc
