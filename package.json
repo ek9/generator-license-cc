@@ -9,9 +9,9 @@
     "url": "https://ek9.co"
   },
   "files": [
-    "generators"
+    "app"
   ],
-  "main": "generators/app/index.js",
+  "main": "app/index.js",
   "keywords": [
     "yeoman-generator",
     "yeoman",
