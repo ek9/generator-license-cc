@@ -28,11 +28,11 @@ describe('generator-license-cc:app CC-BY-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[0],
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -50,11 +50,11 @@ describe('generator-license-cc:app CC-BY-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[1],
+        ccLicense: testLicenses[1],
         output: testOutput
       }).toPromise();
   });
@@ -72,11 +72,11 @@ describe('generator-license-cc:app CC-BY-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[2],
+        ccLicense: testLicenses[2],
         output: testOutput
       }).toPromise();
   });
@@ -94,11 +94,11 @@ describe('generator-license-cc:app CC-BY-NC-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[3],
+        ccLicense: testLicenses[3],
         output: testOutput
       }).toPromise();
   });
@@ -116,11 +116,11 @@ describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[4],
+        ccLicense: testLicenses[4],
         output: testOutput
       }).toPromise();
   });
@@ -138,11 +138,11 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        license: testLicenses[5],
+        ccLicense: testLicenses[5],
         output: testOutput
       }).toPromise();
   });
@@ -160,8 +160,8 @@ describe('generator-license-cc:app CC0-1.0', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
-        license: testLicenses[6],
+        ccWork: testWork,
+        ccLicense: testLicenses[6],
         output: testOutput
       }).toPromise();
   });

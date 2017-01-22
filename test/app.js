@@ -30,12 +30,12 @@ describe('generator-license-cc:app', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
-        licensePrompt: 'Choose a License:',
-        license: testLicenses[0],
+        ccLicensePrompt: 'Choose a License:',
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -50,9 +50,9 @@ describe('generator-license-cc:app no contact details', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
-        license: testLicenses[0],
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -68,9 +68,9 @@ describe('generator-license-cc:app no contact details - email', function () {
       .withPrompts({
         name: testName,
         website: testWebsite,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
-        license: testLicenses[0],
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -86,9 +86,9 @@ describe('generator-license-cc:app no contact details - website', function () {
       .withPrompts({
         name: testName,
         email: testEmail,
-        work: testWork,
+        ccWork: testWork,
         year: testYear,
-        license: testLicenses[0],
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -103,8 +103,8 @@ describe('generator-license-cc:app no contact details + no year', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
-        license: testLicenses[0],
+        ccWork: testWork,
+        ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
   });
@@ -118,8 +118,8 @@ describe('generator-license-cc:app pass name as option', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
-        work: testWork,
-        license: testLicenses[0],
+        ccWork: testWork,
+        ccLicense: testLicenses[0],
         output: testOutput
       }).withOptions({
         name: testName
@@ -136,8 +136,8 @@ describe('generator-license-cc:app pass email as option', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
-        license: testLicenses[0],
+        ccWork: testWork,
+        ccLicense: testLicenses[0],
         output: testOutput
       }).withOptions({
         email: testEmail
@@ -154,8 +154,8 @@ describe('generator-license-cc:app fail gracefully with invalid license', functi
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: testName,
-        work: testWork,
-        license: 'INVALID',
+        ccWork: testWork,
+        ccLicense: 'INVALID',
         output: testOutput
       }).withOptions({
         email: testEmail
