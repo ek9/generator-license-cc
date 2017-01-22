@@ -6,7 +6,7 @@ in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## UNRELEASED
+## 1.1.0 - 2017-01-22
 
 - Fixed compatibility with other license generators (see below) - #18
 - **BC BREAK** Updated option names to be generator specific:
