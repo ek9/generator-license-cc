@@ -28,7 +28,7 @@ describe('generator-license-cc:app CC-BY-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -50,7 +50,7 @@ describe('generator-license-cc:app CC-BY-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -72,7 +72,7 @@ describe('generator-license-cc:app CC-BY-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -94,7 +94,7 @@ describe('generator-license-cc:app CC-BY-NC-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -116,7 +116,7 @@ describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -138,7 +138,7 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -160,7 +160,7 @@ describe('generator-license-cc:app CC0-1.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         ccLicense: testLicenses[6],
         output: testOutput
       }).toPromise();

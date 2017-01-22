@@ -36,7 +36,7 @@ module.exports = Generator.extend({
       required: true
     });
 
-    this.option('ccWork', {
+    this.option('creativeWork', {
       type: String,
       desc: 'Title of Creative Work',
       required: true
@@ -93,7 +93,7 @@ module.exports = Generator.extend({
       this.options.email = this._initOptions.email;
     }
 
-    this.options.ccWork = this._initOptions.ccWork;
+    this.options.creativeWork = this._initOptions.creativeWork;
     this.options.year = this._initOptions.year;
     this.options.website = this._initOptions.website;
     this.options.output = this._initOptions.output || this.options.output;
@@ -115,10 +115,10 @@ module.exports = Generator.extend({
           when: !this._initOptions.name
         },
         {
-          name: 'ccWork',
+          name: 'creativeWork',
           message: 'Title of Creative Work:',
-          default: this.options.ccWork,
-          when: !this._initOptions.ccWork
+          default: this.options.creativeWork,
+          when: !this._initOptions.creativeWork
         },
         {
           name: 'year',
@@ -133,8 +133,8 @@ module.exports = Generator.extend({
           this.options.name = answers.name;
         }
 
-        if (answers.ccWork) {
-          this.options.ccWork = answers.ccWork;
+        if (answers.creativeWork) {
+          this.options.creativeWork = answers.creativeWork;
         }
 
         if (answers.year) {
@@ -285,7 +285,7 @@ module.exports = Generator.extend({
         {
           year: this.options.year,
           author: author,
-          work: this.options.ccWork
+          work: this.options.creativeWork
         }
       );
 

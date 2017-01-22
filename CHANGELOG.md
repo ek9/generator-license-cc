@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - **BC BREAK** Updated option names to be generator specific:
     - `license` is now `ccLicense`.
     - `licensePrompt` is now `ccLicensePrompt`.
-    - `work` is now `ccWork`.
+    - `work` is now `creativeWork`.
 - **BC BREAK** Updated structure of the generator from `generators/app` to
   `generators`. When using this as a sub-generator, make sure to use the new
   structure when using `.composeWith`.

@@ -42,7 +42,7 @@ example code how to trigger this generator:
 ```js
 this.composeWith(require.resolve('generator-license-cc/app'), {
   name: 'Bob A',                        // (optional) Author's Name
-  ccWork: 'ProjectX Documentation',     // (optional) Creative Work Title
+  creativeWork: 'Media & Data Files',   // (optional) Creative Work Title
   email: 'bob@example.org',             // (optional) Author's Email
   website: 'http://www.example.org',    // (optional) Author's Website
   year: '2016-2017',                    // (optional) Year(s) to include

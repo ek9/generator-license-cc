@@ -18,7 +18,7 @@ describe('generator-license-cc:chooser CC-BY-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -42,7 +42,7 @@ describe('generator-license-cc:chooser CC-BY-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -66,7 +66,7 @@ describe('generator-license-cc:chooser CC-BY-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -90,7 +90,7 @@ describe('generator-license-cc:chooser CC-BY-NC-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -114,7 +114,7 @@ describe('generator-license-cc:chooser CC-BY-NC-SA-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -138,7 +138,7 @@ describe('generator-license-cc:chooser CC-BY-NC-ND-4.0', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,

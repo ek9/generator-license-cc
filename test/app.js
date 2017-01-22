@@ -30,7 +30,7 @@ describe('generator-license-cc:app', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         email: testEmail,
         website: testWebsite,
@@ -50,7 +50,7 @@ describe('generator-license-cc:app no contact details', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         ccLicense: testLicenses[0],
         output: testOutput
@@ -68,7 +68,7 @@ describe('generator-license-cc:app no contact details - email', function () {
       .withPrompts({
         name: testName,
         website: testWebsite,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         ccLicense: testLicenses[0],
         output: testOutput
@@ -86,7 +86,7 @@ describe('generator-license-cc:app no contact details - website', function () {
       .withPrompts({
         name: testName,
         email: testEmail,
-        ccWork: testWork,
+        creativeWork: testWork,
         year: testYear,
         ccLicense: testLicenses[0],
         output: testOutput
@@ -103,7 +103,7 @@ describe('generator-license-cc:app no contact details + no year', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         ccLicense: testLicenses[0],
         output: testOutput
       }).toPromise();
@@ -118,7 +118,7 @@ describe('generator-license-cc:app pass name as option', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
-        ccWork: testWork,
+        creativeWork: testWork,
         ccLicense: testLicenses[0],
         output: testOutput
       }).withOptions({
@@ -136,7 +136,7 @@ describe('generator-license-cc:app pass email as option', function () {
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         ccLicense: testLicenses[0],
         output: testOutput
       }).withOptions({
@@ -154,7 +154,7 @@ describe('generator-license-cc:app fail gracefully with invalid license', functi
     return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
-        ccWork: testWork,
+        creativeWork: testWork,
         ccLicense: 'INVALID',
         output: testOutput
       }).withOptions({
