@@ -100,7 +100,7 @@ module.exports = Generator.extend({
 
     // greet the user
     this.log();
-    this.log(chalk.red('license-cc') + ' - generate a ' +
+    this.log(chalk.yellow('license-cc') + ' - generate a ' +
       chalk.yellow('Creative Commons license') + ' for your Creative Works');
     this.log();
   },
@@ -251,7 +251,7 @@ module.exports = Generator.extend({
               this.options.license = 'CC-BY-NC-SA-4.0';
             }
             this.log();
-            this.log('> We have picked ' + chalk.red(this.options.license) + ' License, make sure to verify it is suitable!');
+            this.log('> We have picked ' + chalk.yellow(this.options.license) + ' License!');
             this.log();
           } else {
             this.options.license = answers.license;
@@ -288,8 +288,13 @@ module.exports = Generator.extend({
           work: this.options.work
         }
       );
+
+      this.log();
+      this.log('> ' + chalk.yellow(this.options.license) + ' License has been generated (file: ' + chalk.yellow(this.options.output) + ')');
+      this.log('> Make sure to ' + chalk.red('verify the license is suitable!'));
+      this.log();
     } else {
-      this.log('License \'' + filename + '\' NOT FOUND!');
+      this.log(chalk.red('License \'' + filename + '\' NOT FOUND!'));
     }
   },
 
