@@ -25,7 +25,7 @@ var testOutput = 'LICENSE';
 
 describe('generator-license-cc:app CC-BY-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -47,7 +47,7 @@ describe('generator-license-cc:app CC-BY-4.0', function () {
 
 describe('generator-license-cc:app CC-BY-SA-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -69,7 +69,7 @@ describe('generator-license-cc:app CC-BY-SA-4.0', function () {
 
 describe('generator-license-cc:app CC-BY-ND-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -91,7 +91,7 @@ describe('generator-license-cc:app CC-BY-ND-4.0', function () {
 
 describe('generator-license-cc:app CC-BY-NC-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -113,7 +113,7 @@ describe('generator-license-cc:app CC-BY-NC-4.0', function () {
 
 describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -135,7 +135,7 @@ describe('generator-license-cc:app CC-BY-NC-SA-4.0', function () {
 
 describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
@@ -157,7 +157,7 @@ describe('generator-license-cc:app CC-BY-NC-ND-4.0', function () {
 
 describe('generator-license-cc:app CC0-1.0', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
+    return helpers.run(path.join(__dirname, '../app'))
       .withPrompts({
         name: testName,
         ccWork: testWork,
