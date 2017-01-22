@@ -40,7 +40,7 @@ yo license-cc
 example code how to trigger this generator:
 
 ```js
-this.composeWith(require.resolve('generator-license-cc/generators/app'), {
+this.composeWith(require.resolve('generator-license-cc/app'), {
   name: 'Bob A',                        // (optional) Author's Name
   ccWork: 'ProjectX Documentation',     // (optional) Creative Work Title
   email: 'bob@example.org',             // (optional) Author's Email
