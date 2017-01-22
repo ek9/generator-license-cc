@@ -6,6 +6,10 @@ in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## UNRELEASED
+
+- Update `.gitattributes` file to exclude directories and files from dist.
+
 ## 1.0.1 - 2017-01-22
 
 - Add information upon license creation with a message to verify the license is
