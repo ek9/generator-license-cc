@@ -79,6 +79,10 @@ of [Creative Commons Licenses][10]:
 
 Alternatively, you can pick [CC0 Public Domain 1.0][17] to waive all copyright.
 
+## Similar Generators
+
+- [generator-license][20] - Generate LICENSE for source code.
+
 ### Getting To Know Yeoman
 
 * Yeoman has a heart of gold.
@@ -109,6 +113,8 @@ This work is licensed under [MIT LICENSE](LICENSE).
 [15]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [16]: https://creativecommons.org/licenses/by-nc-nd/4.0/
 [17]: https://creativecommons.org/publicdomain/zero/1.0/
+
+[20]: https://github.com/jozefizso/generator-license
 
 [npm-image]: https://badge.fury.io/js/generator-license-cc.svg
 [npm-url]: https://npmjs.org/package/generator-license-cc
