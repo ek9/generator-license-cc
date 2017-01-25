@@ -7,4 +7,3 @@ node_js:
 
 after_script:
   - gulp coveralls
-
